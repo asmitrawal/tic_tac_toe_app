@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tic_tac_toe_app/components/custom_button.dart';
+import 'package:tic_tac_toe_app/components/custom_select_button.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -56,13 +56,13 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
 
             //button 2P
-            CustomButton(buttonText: "PLAY 2P", iconData: Icons.people),
+            CustomSelectButton(buttonText: "PLAY 2P", iconData: Icons.people),
             SizedBox(
               height: 20,
             ),
 
             //button multiplayer
-            CustomButton(
+            CustomSelectButton(
               buttonText: "MULTIPLAYER",
               iconData: Icons.groups_2,
             ),

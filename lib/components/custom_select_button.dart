@@ -1,11 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe_app/constants/constants.dart';
+import 'package:tic_tac_toe_app/pages/game_board.dart';
 
-class CustomButton extends StatelessWidget {
+class CustomSelectButton extends StatelessWidget {
   final String buttonText;
   final IconData iconData;
-  const CustomButton({
+  const CustomSelectButton({
     Key? key,
     required this.buttonText,
     required this.iconData,
@@ -14,6 +15,21 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => GameBoard(),
+          ),
+        );
+        // Navigator.pushAndRemoveUntil(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) => GameBoard(),
+        //   ),
+        //   (route) => false,
+        // );
+      },
       child: Container(
         width: MediaQuery.of(context).size.width * 0.7,
         padding: EdgeInsets.symmetric(
@@ -23,8 +39,6 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Icon(
               iconData,
