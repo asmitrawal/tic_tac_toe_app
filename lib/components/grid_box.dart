@@ -16,10 +16,8 @@ class GridBox extends StatelessWidget {
       onTap: onTap,
       child: Container(
         alignment: Alignment.center,
-        height: 40,
-        width: 40,
         decoration: BoxDecoration(
-          color: Colors.blueGrey,
+          color: Color(0xFFd0a0b2),
         ),
         child: Text(
           text,

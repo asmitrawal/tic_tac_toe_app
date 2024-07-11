@@ -20,7 +20,7 @@ class CustomResetButton extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               horizontal: Constants.paddingHor, vertical: Constants.paddingVer),
           decoration: BoxDecoration(
-            color: Colors.blueGrey,
+            color: Color(0xFFdab5c3),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(

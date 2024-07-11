@@ -16,19 +16,13 @@ class CustomSelectButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(
+        Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(
             builder: (context) => GameBoard(),
           ),
+          (route) => false,
         );
-        // Navigator.pushAndRemoveUntil(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) => GameBoard(),
-        //   ),
-        //   (route) => false,
-        // );
       },
       child: Container(
         width: MediaQuery.of(context).size.width * 0.7,
