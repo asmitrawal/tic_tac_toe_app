@@ -1,24 +1,24 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import 'package:tic_tac_toe_app/constants/constants.dart';
 
 class CustomResetButton extends StatelessWidget {
   final void Function()? onTap;
+  final String text;
   const CustomResetButton({
     Key? key,
     required this.onTap,
+    required this.text,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: Constants.paddingHor),
+      // margin: EdgeInsets.only(left: Constants.paddingHor),
       child: InkWell(
         onTap: onTap,
         child: Container(
-          padding: EdgeInsets.symmetric(
-              horizontal: Constants.paddingHor, vertical: Constants.paddingVer),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           decoration: BoxDecoration(
             color: Color(0xFFdab5c3),
             borderRadius: BorderRadius.circular(20),
@@ -31,7 +31,9 @@ class CustomResetButton extends StatelessWidget {
                 size: 24,
               ),
               SizedBox(width: 10),
-              Text("RESET", style: TextStyle(fontSize: 24)),
+              Transform.translate(
+                offset: Offset(0, 2),
+                  child: Text("$text", style: TextStyle(fontSize: 16))),
             ],
           ),
         ),

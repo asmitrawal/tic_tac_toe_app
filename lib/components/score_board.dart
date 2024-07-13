@@ -1,9 +1,18 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:tic_tac_toe_app/constants/constants.dart';
 
 class ScoreBoard extends StatelessWidget {
-  const ScoreBoard({super.key});
+  final int ohWins;
+  final int exWins;
+  final int draws;
+  const ScoreBoard({
+    Key? key,
+    required this.ohWins,
+    required this.exWins,
+    required this.draws,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,23 +22,24 @@ class ScoreBoard extends StatelessWidget {
         children: [
           Text(
             "SCOREBOARD",
-            style: TextStyle(fontSize: 32,color: Color(0xFFdab5c3)),
+            style: TextStyle(fontSize: 32, color: Color(0xFFdab5c3)),
           ),
+          SizedBox(height: 5),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             // mainAxisSize: MainAxisSize.min,
             children: [
-              SquareTile(
+              ScoreTile(
                 icon: Icons.circle_outlined,
-                text: "0/3 Wins",
+                text: "$ohWins/3 Wins",
               ),
-              SquareTile(
+              ScoreTile(
                 icon: Icons.close,
-                text: "0/3 Wins",
+                text: "$exWins/3 Wins",
               ),
-              SquareTile(
+              ScoreTile(
                 icon: Icons.balance_rounded,
-                text: "0 Draws",
+                text: "$draws Draws",
               ),
             ],
           ),
@@ -39,10 +49,10 @@ class ScoreBoard extends StatelessWidget {
   }
 }
 
-class SquareTile extends StatelessWidget {
+class ScoreTile extends StatelessWidget {
   final IconData icon;
   final String text;
-  const SquareTile({
+  const ScoreTile({
     Key? key,
     required this.icon,
     required this.text,
@@ -54,23 +64,23 @@ class SquareTile extends StatelessWidget {
       fit: FlexFit.tight,
       child: Container(
           child: Column(
-            children: [
-              //symbol
-              Icon(
-                icon,
-                size: 40,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-      
-              //text
-              Text(
-                text,
-                style: TextStyle(fontSize: 15),
-              )
-            ],
-          )),
+        children: [
+          //symbol
+          Icon(
+            icon,
+            size: 40,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+
+          //text
+          Text(
+            text,
+            style: TextStyle(fontSize: 15),
+          )
+        ],
+      )),
     );
   }
 }
